@@ -839,6 +839,7 @@
               columnType = "number";
             }
             var data = createDataTable(chart.data, columnType);
+            formatData(chart.options, data, chart.data.length)
             chart.chart = new google.visualization.LineChart(chart.element);
             resize(function () {
               chart.chart.draw(data, options);
@@ -1622,6 +1623,17 @@
     }
 
     return series;
+  }
+
+  function formatData(chartOptions, data, dataLength){
+    if (chartOptions.formatter){
+      var formatter = new google.visualization.NumberFormat(chartOptions.formatter);
+      var i = 1;
+      while (i <= dataLength ){
+        formatter.format(data,i);
+        i++;
+      }
+    }
   }
 
   function processSimple(chart) {
