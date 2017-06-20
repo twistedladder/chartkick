@@ -1626,6 +1626,7 @@
   }
 
   function formatData(chartOptions, data, dataLength){
+    console.log(chartOptions)
     if (chartOptions.formatter){
       var formatter = new google.visualization.NumberFormat(chartOptions.formatter);
       var i = 1;
