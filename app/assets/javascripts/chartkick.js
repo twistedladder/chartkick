@@ -839,6 +839,7 @@
               columnType = "number";
             }
             var data = createDataTable(chart.data, columnType);
+            console.log(data)
             formatData(chart.options, data, chart.data.length)
             chart.chart = new google.visualization.LineChart(chart.element);
             resize(function () {
